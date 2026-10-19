@@ -1,0 +1,770 @@
+/*To ensure everything is at the very top of screen*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: League-Bold;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/*
+    To comply with WCAG guidelines I used CSS variables to create a high contrast toggle button to comply with accessibility standards
+*/
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --product-page-background: rgb(239, 239, 239);
+    --products-box-colour: #ffffff;
+    --background-best-seller-box: #7d84912a;
+}
+
+body.high-contrast {
+  --bg-color: #000000;
+  --text-color: #ffff00;
+  --product-page-background: #000000;
+  --products-box-colour: #181818;
+  --background-best-seller-box: #181818;
+}
+
+/*Fonts - To ensure readable fonts that can navigate users*/
+@font-face {
+    font-family: League-Bold;
+    src: url('Font/LeagueSpartan-Bold.ttf');
+}
+
+@font-face {
+    font-family: League-Black;
+    src: url('Font/LeagueSpartan-Black.ttf');
+}
+
+@font-face {
+    font-family: League-Light;
+    src: url('Font/LeagueSpartan-Light.ttf');
+}
+
+@font-face {
+    font-family: League-Thin;
+    src: url('Font/LeagueSpartan-Thin.ttf');
+}
+
+@font-face {
+    font-family: League-Regular;
+    src: url('Font/LeagueSpartan-Regular.ttf');
+}
+
+
+/*NAVIGATION*/
+
+/*
+To ensure the upper navigation bar, text, fonts and backgrounds are compliant with the WCAG 2.2 success criterion
+
+The WCAG 2.2 states that the colour contrast must be greater than 4.5:1 to make sure users who have low vision can be able to 
+see the navigation bar on the screen. The background in the upper navigation bar is Dark green(#041b15) while the forground is
+Light blue (#84CAE7) which seems to be above 4.5:1. This is the same with the lower navigation bar, the background is light green (#78C091)
+the forground Dark green(#041b15).
+
+This is compliant of the equality act 2010 as it targets every user with low light deficines to look at the elements on the screen.
+*/
+
+/*Navigation bar at the top*/
+.upper-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    background-color: #041b15;
+}
+
+/*logo*/
+.logo {
+    height: 130px;
+}
+
+/*sign in button*/
+.sign-in {
+    font-family: League-Bold;
+    text-decoration: none;
+    background-color:  #84CAE7;
+    border: none;
+    color: #041B15;
+    height: 50px;
+    width: 100px;
+    margin: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.sign-in:hover {
+    background-color: #71aac2;
+}
+
+/*Setting button*/
+.setting {
+    font-family: League-Bold;
+    text-decoration: none;
+    border: solid, #84CAE7;
+    color:  #84CAE7;
+    height: 50px;
+    width: 100px;
+    margin: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+/*Setting hover*/
+.setting:hover {
+     color:  #6faac4;
+     border: solid, #6faac4;
+}
+
+/*Sign in and settings button go to the right of Navigation*/
+.nav-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Lower Navigation Bar*/
+.lower-navigation, .nav-links {
+    font-family: League-Bold;
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+    gap: 5px;
+    justify-content: center;
+    font-size: 20px;
+    background-color: #78C091;
+    padding: 10px;
+    color: #041b15;
+}
+
+.nav-links:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: #041b15;
+}
+
+/*Headers*/
+h1 {
+    font-family: League-Bold;
+    margin: 12px;
+}
+
+/*HOME PAGE*/
+.carousel {
+    display: flex;
+    padding: 10px;
+    gap: 0.1vw;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    list-style-type: none;
+    margin: 0;
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.card {
+    margin: 0;
+    top: 0;
+    flex: 0 0 50%;
+
+    padding: 10px;
+    width: auto;
+    height: 550px;
+    scroll-snap-align: center;
+
+}
+
+
+.best-seller {
+   display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    
+    
+}
+
+
+.best-seller-information{
+    margin: 0;
+    top: 0;
+    flex: 0 0 250px;
+    width: 10px;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 160px;
+    border-radius: 20px;
+    position: relative;
+    background-color: var(--background-best-seller-box);
+}
+
+.home-page-header {
+    text-align: center;
+    font-size: 50px;
+}
+
+.best-seller-description{
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    font-size: 21px; 
+    font-family: League-Regular;
+    position: absolute;
+    top: 50px;
+    
+}
+
+.price-tag {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    right: 25px;
+}
+
+.best-seller-image {
+    width: 150px;
+    height: auto;
+}
+
+.best-seller-information, .best-seller-link{
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+/*LOGIN AND REGISTER PAGE*/
+.parent {
+    display: flex;
+    height: 100vh;
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 800px;
+    background-color: #041b15;
+    border-radius: 15px;
+    flex-direction: column;
+}
+
+.logo-login {
+    display: block;
+
+}
+
+.login-register-header {
+    color: white;
+    font-size: 60px;
+}
+
+input[type=email],input[type=password], input[type=text]{
+    height: 45px;
+    width: 300px;
+    outline: none;
+    color: white;
+    border: solid, white, 1.5px;
+    border-radius: 8px;
+    background-color: #041b15;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+
+input[type=submit] {
+    background-color: white;
+    font-family: League-Bold;
+    color: black;
+    border: none;
+    font-size: 22px;
+    border-radius: 10px;
+    height: 2em;
+    width: 10em;
+    transition: 0.2s;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(207, 207, 207);
+    width: 11.5em;
+}
+
+.form-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+input::placeholder {
+    opacity: 0.9;
+    color: white;
+    font-family: League-Thin;
+    font-size: 21px;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear{
+    display: none;
+}
+
+.error-message {
+    color: #ED474A;
+    font-family: League-Light
+}
+
+.register-text {
+    font-family: League-Light;
+    color: white;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+/*ABOUT PAGE*/
+.about-parent {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.about {
+    padding: 20px;
+    background-color: #22aaa1;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about-us-header {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+.information {
+    color: white;
+    display: block;
+    width: 50em;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+    font-size: 25px;
+}
+
+.information-black {
+    display: block;
+    width: 50em;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+    font-size: 15px;
+    text-align: center;
+    
+}
+
+.producers-methods-header {
+    margin: 17px;
+    font-size: 70px;
+    align-items: center;
+    text-align: center;
+}
+
+.Producers-methods {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    position: absolute;
+    left: 10%;
+}
+
+.producers-method-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin: 20px;
+    position: relative;
+}
+
+.circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color:  #4ce0d2;
+    position: relative;
+
+    /* This pushes the circle off the right edge */
+    transform: translateX(-205%);
+
+    z-index: -1;
+}
+
+.producer-methods-image {
+    width: auto;
+    height: 500px;
+    position: absolute;
+    right: 100px;
+    border-radius: 50px;
+}
+
+.circle-two {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: #007a9f;
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    z-index: -10;
+}
+
+
+/*LOYALTY PAGE*/
+.loyalty {
+    background-image: linear-gradient(to left, #007a9f, #4ce0d2);
+    padding: 50px;
+    display: block;
+}
+
+.loyalty-header {
+    position: relative;
+    width: 600px;
+    color: white;
+    display: block;
+}
+
+.loyalty-information {
+    position: relative;
+    width: 34em;
+    color: white;
+    left: 22em;
+    text-align: center;
+}
+
+.subcribe-loyalty {
+    color: white;
+    height: 50px;
+    width: 190px;
+    position: absolute;
+    font-size: 26px;
+    background-image: linear-gradient(to right, #cc4900, #cd0e47);
+    left: 22.7em;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin: -10px;
+}
+
+.subcribe-loyalty:hover {
+    background-image: linear-gradient(#a10b38, #a73a00);
+}
+
+
+/*Settings Page*/
+.settings-section {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    position: fixed;
+    height: 100%;
+    list-style-type: none;
+    background-color: #84CAE7;
+    color: black;
+    overflow: auto;
+}
+
+.settings-links, .settings-list {
+    display: block;
+    color: #041B15;
+    margin: auto;
+    align-items: center;
+    height: 50px;
+    font-size: 20px;
+    transition: 0.3s;
+    padding: 8px 16px;
+
+}
+
+.settings-links:hover {
+    background-color: #041B15;
+    color: #84CAE7;
+    text-decoration: underline;
+    height: 30px;
+}
+
+.settings-links{
+    right: 20px;
+}
+
+.settings-header {
+    font-family: League-Bold;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.settings-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Dashboard Page*/
+.position-dashboard-buttons {
+
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Manage-stocks-button, .Update-button, .View-button {
+    display: flex;
+    background-color: #22AAA1;
+    font-size: 50px;
+    font-family: League-Bold;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 90px;
+}
+
+
+.Manage-stocks-button:hover, .Update-button:hover, .View-button:hover {
+    background-color: #197c76;
+}
+
+/*products page*/
+.product-page-background{
+    height: 120vh;
+    width: auto;
+    background-color: var(--product-page-background);
+    padding: 10px;
+    position: relative;
+}
+
+.header-category{
+    font-size: 30px;
+    
+    margin: 0;
+    left: 123px;
+    position: absolute;
+   font-family: League-Regular;
+    
+}
+
+.product-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 30px;
+}
+
+.products {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 1em;
+}
+
+.product-information {
+    background-color: var(--products-box-colour);
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    width: 210px;
+    height: 340px;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+    color: #78C091;
+}
+
+.product-image {
+    width: 140px;
+    height: 170px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.product-information, .product-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+#right-arrow, #left-arrow {
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.purchase-button {
+    width: 120px;
+    height: 50px;
+    border: none;
+    
+    background-color: #84CAE7;
+    color: black;
+    cursor: pointer;
+    font-family: League-Bold;
+    font-size: 25px;
+    
+}
+
+.purchase-button:hover{
+    background-color: #7cbcd8;
+    transition: 0.4s;
+}
+
+.purchase-information {
+    display: flex; 
+    position: absolute; 
+    left: 900px; 
+    top: 200px; 
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+/*Accessibility Page*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 30px;
+    
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #041B15;
+    transition: .4s;
+    border-radius: 34px;
+    border: 2px solid transparent;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #84CAE7;
+    
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/*footer*/
+.bottom-footer {
+    position: relative;
+    background-color: #041b15;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+.terms_of_service_link {
+    color: white; 
+    position: relative; 
+ 
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    font-family: League-Regular;
+}
+
+.terms_of_service_link:hover {
+    text-decoration: underline;
+}
+
+.terms-and-service-header {
+    color: white; 
+    position: relative; 
+    
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.policy-page {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   text-align: center;
+   width: 1500px;
+   font-size: 30px;
+}
+
+.policy-parent{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+/*To make the page easier to see and using visual hierarcy to get the users to look at the logo at the top then follow down*/
+.logo_policy_page {
+    display: flex;
+    width: 300px;
+    background-color: #041b15;
+    height: auto;
+    border-radius: 50px;
+}
+

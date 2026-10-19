@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon/Favicon.ico')}}" type="image/x-icon">
+    <!-- Javascript -->
+    <script src="{{url_for('static', filename='javascript/script.js')}}" defer></script>
+    <!-- Title -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <script src="https://t.contentsquare.net/uxa/b71e41fab46b4.js"></script>
+     {% if not config.DEBUG %}
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:YOUR_HOTJAR_ID_HERE,hjsv:6};
+                a=o.getElementsByTagName('head');
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://hotjar.com');
+        </script>
+    {% endif %}
+</head>
+<body>
+    <!-- Upper navigation -->
+     <!-- This is to make the navigation easily accessible to all users -->
+    <div class="upper-navigation">
+        <!--
+             The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+             This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+              -->
+        <a href="/"><img src="{{url_for('static', filename='images/Logo.svg')}}" alt="Greenfield Local Hub" class="logo"></a>
+      
+        <div class="nav-right">
+            <a href="/login" class="sign-in">Sign in</a>
+            <a href="/accessibility" class="Setting">Setting</a>
+        </div>
+    </div>
+
+    <!-- Bottom navigation bar -->
+    <!-- This is to make the navigation easily accessible to all users -->
+    <ul class="lower-navigation">
+        <li class="nav-links"><a href="/products">View Products</a></li>
+        <li class="nav-links"><a href="/about">About us</a></li>
+        <li class="nav-links"><a href="/offers">Offers</a></li>
+        <li class="nav-links"><a href="/dashboard">Dashboard</a></li>
+        <li class="nav-links"><a href="/loyalty">Loyalty</a></li>
+    </ul>
+
+     <!-- This is where most of the content will go in different pages -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Greenfield Local Hub - Products
+{% endblock %}
+
+{% block content %}
+    <div class="product-page-background">
+        <!--Fruit header-->
+        <h2 class="header-category">Fruits</h2>
+        <div class="product-wrapper">
+            <!--Left button-->
+            <img src="{{url_for('static', filename='images/directions/left.png')}}" alt="left scroller" id="left-arrow">
+            <div class="products">
+                <!--Displaying all of the fruits in a row-->
+                {% for fruit in fruits %}
+                    <div class="product-information">
+                        <!--Fruit name-->
+                        <a href="{{url_for('cart', product_id=fruit.id)}}" class="product-link">
+                            <h3 style="font-size: 25px;">{{fruit.name}}</h3>
+                        </a>
+                        <!--
+                            The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+                            This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+                        -->
+                        <a href="{{url_for('cart', product_id=fruit.id)}}" class="product-link">
+                            <img src="{{url_for('static', filename='images/fruits/' + fruit.image)}}" alt="{{fruit.name}}" class="product-image">
+                        </a>
+                        <!--Description-->
+                         <a href="{{url_for('cart', product_id=fruit.id)}}" class="product-link">
+                            <h3 style="font-size: 15px; font-family: League-Light;">{{fruit.description}}</h3>
+                        </a>
+                        <!--Price tag-->
+                        <p><strong>£{{fruit.price}}</strong></p>
+
+                    </div>
+                {% endfor %}
+            </div>
+            <!--Right button-->
+            <img src="{{url_for('static', filename='images/directions/right.png')}}" alt="right scroller" id="right-arrow">
+        </div>
+    </div>
+    
+{% endblock %}

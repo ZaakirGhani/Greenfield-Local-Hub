@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon/Favicon.ico')}}" type="image/x-icon">
+    <!-- Javascript -->
+    <script src="{{url_for('static', filename='javascript/script.js')}}" defer></script>
+    <!-- Title -->
+    <title>Greenfield Local Hub - Settings</title>
+</head>
+<body>
+    <ul class="settings-section">
+        <br>
+        <div><li class="settings-header">Welcome {{ session['username'] }}</li></div> <br>
+        <li class="settings-list"><a href="/accessibility" class="settings-links">Accessibility</a></li>
+        <li class="settings-list"><a href="#" class="settings-links">Order History</a></li>
+        <li class="settings-list"><a href="#" class="settings-links">Account Settings</a></li>
+        <li class="settings-list"><a href="/logout" class="settings-links">Logout</a></li>
+    </ul>
+
+    <div class="settings-content">
+        
+        {% block settings %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Greenfield Local Hub
+{% endblock %}
+
+{% block content %}
+
+    <!--
+        The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+        This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+    -->
+    <!--Carousel-->
+    <ul class="carousel">
+        <li><img src="{{url_for('static', filename='images/Greeny.jpg')}}" alt="The green autumn leaves" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Greeny2.jpg')}}" alt="The greeny leaves" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Vegetables.jpg')}}" alt="Vegetables" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Fruit.jpg')}}" alt="Fruits" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Market.jpg')}}" alt="The Market" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Farmer.jpg')}}" alt="A farmer smiling in their farm" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Farm-land.jpg')}}" alt="The farmland from a third person view" class="card"></li>
+        <li><img src="{{url_for('static', filename='images/Batch-potatoes.jpg')}}" alt="Batches of potatoes" class="card"></li>
+    </ul>
+
+
+    <!--top picks-->
+    <h2 class="home-page-header">Top Picks</h2>
+    <div class="best-seller">
+    {% for best_seller in best_categories %}
+        <div class="best-seller-information">
+            <a href="{{url_for('cart', product_id=best_seller.id)}}" class="best-seller-link"><h3 style="text-align: center;">{{best_seller.name}}</h3></a>
+            <div style="display: flex;">
+                <a href="{{url_for('cart', product_id=best_seller.id)}}" class="best-seller-link">
+                    <img src="{{url_for('static', filename='images/fruits/' + best_seller.image)}}" alt="Top best products" class="best-seller-image">
+                </a>
+                <a href="{{url_for('cart', product_id=best_seller.id)}}" class="best-seller-link">
+                    <p class="best-seller-description">
+                    {{best_seller.description}}</p></a>
+            </div>
+            <p class="price-tag"><strong style="text-align: end;">Price: £{{best_seller.price}}</strong></p>
+        </div>
+    {% endfor %}
+    </div>
+    <br>
+    <br>
+    <div class="bottom-footer">
+        <br>
+        <footer>
+                © 2026 Greenfield Local Hub
+        </footer>
+            <p class="terms-and-service-header">terms and service</p>
+            <a href="/policy" class="terms_of_service_link">Privacy policy</a>
+        <br>
+    </div>
+
+{% endblock %}

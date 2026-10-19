@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Greenfield Local Hub - About Us
+{% endblock %}
+
+{% block content %}
+    <div class="about-parent">
+        <div class="about">
+            <h1 class="about-us-header">About Us</h1>
+            <p class="information">
+                Green Field Local Hub is a community‑driven retail space dedicated to bringing the freshest, highest‑quality products from local farmers
+                and producers directly to your doorstep. We’re built on the belief that great food starts close to home, which is why we partner exclusively with trusted
+                growers and makers from our region. Every item on our shelves reflects our commitment to sustainability, transparency, and supporting the local economy. At
+                Green Field Local Hub, we’re not just a store — we’re a connection point between the people who grow the food and the people who enjoy it, creating a healthier,
+                more resilient community for everyone.
+            </p>
+        </div>
+
+        <div class="producers-method-row">
+            <div class="Producers-methods">
+                    <h1 class="producers-methods-header">Producers methods</h1>
+                    <p class="information-black">
+                        Our local food producers are dedicated to traditional, sustainable methods that prioritise quality, 
+                        freshness, and respect for the land. Many of our partner farmers use environmentally conscious practices 
+                        such as crop rotation, natural soil enrichment, and minimal‑impact harvesting to ensure their fields remain healthy for generations. 
+                        Small‑batch producers craft their goods with the same care — favouring hand‑made processes, ethical sourcing, and time‑honoured techniques 
+                        that preserve authentic flavour. By working closely with these growers and makers, we ensure that every product at Green Field Local Hub 
+                        reflects a commitment to responsible farming, transparency, and genuine local craftsmanship.
+                    </p>
+            </div>
+            <!--
+                The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+                This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+            -->
+            <img src="{{url_for('static', filename='images/producers methods.jpg')}}" alt="Image of a retail worker" class="producer-methods-image">
+            <div class="circle"><div class="circle-two"></div></div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <br>
+        <footer>
+                © 2026 Greenfield Local Hub
+        </footer>
+            <p class="terms-and-service-header">terms and service</p>
+            <a href="/policy" class="terms_of_service_link">Privacy policy</a>
+        <br>
+    </div>
+{% endblock %}

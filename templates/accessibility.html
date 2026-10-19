@@ -1,0 +1,21 @@
+{% extends 'settings.html'%}
+
+
+
+{% block settings %}
+<!--
+    The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+    This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+    -->
+<a href="/"><img src="{{url_for('static', filename='images/Logo.svg')}}" alt="Greenfield Local Hub" class="logo" style="background-color: black; border-radius: 50px;"></a>
+    <h1>Accessibility</h1>
+    <br>
+    <h2>High Contrast</h2>
+    <div> 
+        
+        <label class="switch">
+            <input type="checkbox" id="contrast-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+{% endblock %}

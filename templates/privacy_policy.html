@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon/Favicon.ico')}}" type="image/x-icon">
+    <!-- Javascript -->
+    <script src="{{url_for('static', filename='javascript/script.js')}}" defer></script>
+    <!-- Title -->
+    <title>Greenfield Local Hub - Privacy Policy</title>
+</head>
+<body>
+
+    <div class="policy-parent">
+        <div class="policy-page">
+            <!--
+             The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+             This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+              -->
+            <a href="/"><img src="{{url_for('static', filename='images/Logo.svg')}}" alt="Greenfield Local Hub" class="logo_policy_page"></a>
+            <h1>Privacy Policy</h1>
+            <p style="font-family: League-Light; font-size: 30px;">Dear user, to create the best experience for you, the user, when you register or sign in we will be storing your data in our database
+                which we encrypt to ensure malicious users don't temper with data according to the GDPR and data protection laws. We do not temper with your data as we ourselves
+                cannot access your data in our database.
+                <br> <br> <br><br>
+                Things that are stored in our database are:
+                <br> <br>
+                - Username <br>
+                - Email <br>
+                - Password
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Greenfield Local Hub - cart ({{product_id.name}})
+{% endblock %}
+
+{% block content %}
+    <div>
+        <!--
+             The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+             This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+              -->
+        <img src="{{url_for('static', filename='images/fruits/' + product_id.image)}}" alt="{{product_id.name}}" style="height: 400px; object-fit: contain; margin: 50px;">
+        
+        <div class="purchase-information">
+            <h1 style="font-size: 70px; display: flex;">{{product_id.name}}</h1>
+            <p>_____________________________________________________________________________________________________</p>
+            <p>{{ product_id.description }}</p>
+            <p style="font-size: 20px;"><strong>£{{ product_id.price }}</strong></p>
+            <p id="stock">Stock: {{ product_id.stocks }}</p>
+            <button class="purchase-button">Purchase</button>
+
+        </div>
+        
+        <script>
+            //To display IN STOCK if the number is above 0
+            let product_stock = document.getElementById('stock')
+            let product_stock_number = parseInt(product_stock.textContent)
+
+            if (product_stock <= 0) {
+                product_stock.textContent = 'OUT OF STOCK'
+            }
+            else {
+                 product_stock.textContent = 'IN STOCK'
+            }
+        </script>
+        
+
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon/Favicon.ico')}}" type="image/x-icon">
+    <!-- Javascript -->
+    <script src="{{url_for('static', filename='javascript/script.js')}}" defer></script>
+    <!-- Title -->
+    <title>Greenfield Local Hub - Login</title>
+</head>
+<body>
+    <!-- Parent Class sets the whole image of the screen -->
+    <div class="parent">
+        <!-- Login-box Class aligns itself in the centre of the whole screen -->
+        <div class="login-box">
+            <!-- Logo -->
+            <!--
+                The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+                This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+            -->
+            <a href="/"><img src="{{url_for('static', filename='images/Logo.svg')}}" alt="Greenfield Local Hub Logo" class="Logo logo-login"></a> 
+            <!-- Login header -->
+            <h1 class="login-register-header">Login</h1> <br> <br><br>
+
+            <!-- Form -->
+            <form action="/logging" class="form-box" name="form-validation" method="post">
+                <!-- Email input -->
+                <input type="email" name="Email" placeholder="Email"> <br><br>
+                <!-- Password input -->
+                <input type="password" name="Password" placeholder="Password (8 characters or more)" required minlength="8"> <br> <br>
+                <!-- Submit Button -->
+                <input type="submit" name="Login" value="Sign in" onclick="error_handling_message()">
+            </form>
+
+            <!-- Register page link -->
+            <a href="/register" class="register-text">Register</a>
+            <br><br>
+            <!-- Error handling message -->
+            <div id="error-handling" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        
+        //Validation: Display a message when the password has nothing in it or doesn't have the correct length. 
+        function error_handling_message() {
+            let password = document.forms['form-validation']['Password'].value;
+            
+
+            
+            if (password == ''){
+                error_text = 'No password has been entered!';
+                const message = document.getElementById('error-handling').textContent = error_text;
+            }
+            else if (password.length <= 7) {
+                error_text = 'Password must be 8 characters long!';
+                const message = document.getElementById('error-handling').textContent = error_text;
+            } 
+            
+
+        }
+
+ 
+        
+
+    </script>
+</body>
+</html>

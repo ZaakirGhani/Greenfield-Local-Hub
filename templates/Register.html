@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon/Favicon.ico')}}" type="image/x-icon">
+    <!-- Javascript -->
+    <script src="{{url_for('static', filename='javascript/script.js')}}" defer></script>
+    <!-- Title -->
+    <title>Greenfield Local Hub - Register</title>
+</head>
+<body>
+    <!-- Parent Class sets the whole image of the screen -->
+    <div class="parent">
+        <!-- Login-box Class aligns itself in the centre of the whole screen -->
+        <div class="login-box">
+            <!-- Logo -->
+             <!--
+             The Alt allows the users to know what is in the page. This is in accordance to the equality act 2010,
+             This gives users with disability to see and must use audio description. The alt will help the users to hear a vivid description of the image
+              -->
+            <a href="/"><img src="{{url_for('static', filename='images/Logo.svg')}}" alt="Greenfield Local Hub Logo" class="Logo logo-login"></a> 
+            <!-- Login header -->
+            <h1 class="login-register-header">Register</h1> <br> <br><br>
+
+            <!-- Form -->
+            <form action="/registering" method="post" class="form-box">
+                <!-- Username input -->
+                <input type="text" name="Username" placeholder="Username (9 characters)" maxlength="9"> <br><br>
+                <!-- Email input -->
+                <input type="email" name="Email" placeholder="Email" required> <br><br>
+                <!-- Password input -->
+                <input type="password" name="Password" placeholder="Password (8 characters or more)" required  minlength="8"> <br> <br>
+                <!-- Submit Button -->
+                <input type="submit" name="Register" value="Create account">
+
+            </form>
+
+            <a href="/login" class="register-text">Sign in</a>
+
+             {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p class="error-message">{{ msg }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>
